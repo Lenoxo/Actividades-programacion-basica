@@ -27,4 +27,3 @@ Diseño general:
 - Se me ocurre dividirla en 2 archivos: index.html con la info para el usuario, index.js para la lógica en JS.
 
 */
-

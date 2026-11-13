@@ -1,11 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desglose de pago</title>
-</head>
-<body>
-    App de desglose de pago
-</body>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <h1>App de desglose de pago</h1>
+    <input type="number" class="integer-input" placeholder="Nro. de unidades" />
+    <input type="number" class="integer-input" placeholder="Precio unitario" />
+    <button type="button">Calcular</button>
+    <h2>Resultados:</h2>
+    <p>Subtotal: <output class="subtotal">0</output></p>
+    <p>Descuento: <output class="discount">0</output>%</p>
+    <p>Total: <output class="total">0</output></p>
+  </body>
 </html>
