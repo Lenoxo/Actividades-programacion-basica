@@ -27,3 +27,33 @@ Diseño general:
 - Se me ocurre dividirla en 2 archivos: index.html con la info para el usuario, index.js para la lógica en JS.
 
 */
+
+const unitsInput = document.querySelector(".units-input");
+const priceInput = document.querySelector(".price-input");
+const calculateButton = document.querySelector(".calculate-button");
+
+const unitsValue = Number(unitsInput.value)
+const singlePrice = Number(priceInput.value)
+
+let subtotalOutput = document.querySelector(".subtotal")
+let discountOutput = document.querySelector(".discount")
+let totalOutput = document.querySelector(".total")
+
+subtotalOutput = Number(subtotalOutput.innerHTML)
+discountOutput = Number(discountOutput.innerHTML)
+subtotalOutput = Number(subtotalOutput.innerHTML)
+
+calculateButton.addEventListener("click", () => {
+    calculate(unitsValue, singlePrice)
+});
+
+function calculate(units, price) {
+    const remainingPercentage = 100 - discountOutput
+    subtotalOutput = units * price
+    totalOutput = subtotalOutput - (subtotalOutput * parseFloat(`0.${remainingPercentage}`))
+    console.info(subtotalOutput)
+    console.info(discountOutput)
+    console.info(remainingPercentage)
+    console.info(totalOutput)
+   return 0 
+}
