@@ -35,25 +35,34 @@ const calculateButton = document.querySelector(".calculate-button");
 const unitsValue = Number(unitsInput.value)
 const singlePrice = Number(priceInput.value)
 
-let subtotalOutput = document.querySelector(".subtotal")
-let discountOutput = document.querySelector(".discount")
-let totalOutput = document.querySelector(".total")
+const subtotalOutput = document.querySelector(".subtotal")
+const discountOutput = document.querySelector(".discount")
+const totalOutput = document.querySelector(".total")
 
-subtotalOutput = Number(subtotalOutput.innerHTML)
-discountOutput = Number(discountOutput.innerHTML)
-subtotalOutput = Number(subtotalOutput.innerHTML)
+let subtotal = Number(subtotalOutput.innerHTML)
+let discount = Number(discountOutput.innerHTML)
+let total = Number(totalOutput.innerHTML)
 
 calculateButton.addEventListener("click", () => {
     calculate(unitsValue, singlePrice)
 });
 
 function calculate(units, price) {
-    const remainingPercentage = 100 - discountOutput
-    subtotalOutput = units * price
-    totalOutput = subtotalOutput - (subtotalOutput * parseFloat(`0.${remainingPercentage}`))
-    console.info(subtotalOutput)
-    console.info(discountOutput)
+    let remainingPercentage = 100 - discount
+
+    if (remainingPercentage === 100) {
+       remainingPercentage = 0 // I do this in order to preserve the calculation logic for subtotal 
+    }
+
+    subtotal = units * price
+    total = subtotal - (subtotal * parseFloat(`0.${remainingPercentage}`))
+    console.info(subtotal)
+    console.info(discount)
+    console.info(total)
     console.info(remainingPercentage)
-    console.info(totalOutput)
+    
+    subtotalOutput.innerHTML = subtotal
+    discountOutput.innerHTML = discount
+    totalOutput.innerHTML = total 
    return 0 
 }
